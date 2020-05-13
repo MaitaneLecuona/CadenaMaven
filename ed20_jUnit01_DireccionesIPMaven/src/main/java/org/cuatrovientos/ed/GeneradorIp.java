@@ -9,14 +9,15 @@ import java.util.Random;
  */
 public class GeneradorIp {
 	
-	Random rnd = new Random();
+	
 	/**
 	 * Función para generar numeros
 	 * @param min
 	 * @param max
 	 * @return num
 	 */
-	public int generarNumero(int min, int max){		
+	public int generarNumero(int min, int max){
+		Random rnd = new Random();
 		int num = rnd.nextInt(max);
 		return num;
 	}
@@ -27,15 +28,6 @@ public class GeneradorIp {
 	 * @return IP
 	 */
 	public String direccionIP() {
-		String IP = "";		
-		for (int i = 0; i < 3; i++) {
-			int numero = generarNumero(1,255);		
-			if (i == 3) {
-				IP = (IP + numero);
-			}else {
-				IP = (numero + ".");
-			}			
-		}		
-		return "IP";
+		return generarNumero(1,254)+"."+generarNumero(0,254)+"."+generarNumero(0,254)+generarNumero(1,254);
 	}
 }
